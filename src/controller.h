@@ -7,6 +7,9 @@ namespace nap
 	namespace edit
 	{
 
+		/**
+		 * Controls a Model, with integrated undo/redo functionality.
+		 */
 		class Controller : public Resource
 		{
 			RTTI_ENABLE(Resource)
