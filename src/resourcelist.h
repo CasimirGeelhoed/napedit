@@ -11,7 +11,7 @@
 #include "imgui_internal.h"
 #include <imguiservice.h>
 
-#include "controller.h"
+#include "modelcontroller.h"
 
 namespace nap
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <controller.h>
+#include <modelcontroller.h>
 #include <propertyeditor.h>
 #include <filteredmenu.h>
 #include <layoutconstants.h>

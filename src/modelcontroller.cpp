@@ -1,4 +1,4 @@
-#include "controller.h"
+#include "modelcontroller.h"
 
 RTTI_BEGIN_CLASS(nap::edit::Controller)
     RTTI_PROPERTY("Model", &nap::edit::Controller::mModel, nap::rtti::EPropertyMetaData::Required)
