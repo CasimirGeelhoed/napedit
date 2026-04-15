@@ -1,7 +1,7 @@
 #pragma once
 
 #include <model.h>
-#include <controller.h>
+#include "controller.h"
 #include <Gui/Action.h>
 
 namespace nap
