@@ -272,6 +272,8 @@ namespace nap
             bool empty() const { return mSelection.empty(); }
 
         private:
+			nap::Slot<> mModelClearedSlot = { [&]() -> void { clear(); } };
+
             Slot<const std::string&> mResourceRemovedSlot = { this, &Selector::onResourceRemoved };
             void onResourceRemoved(const std::string& mID);
 
