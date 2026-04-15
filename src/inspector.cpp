@@ -403,10 +403,10 @@ namespace nap
             char buffer[128];
             snprintf(buffer, sizeof(buffer), "%s", oldID.c_str());
             ImGui::SetNextItemWidth(width);
-            if (ImGui::InputText(label.c_str(), buffer, sizeof(buffer), ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll))
+            if (ImGui::InputText(label.c_str(), buffer, sizeof(buffer)))
             {
                 auto newID = std::string(buffer);
-                mModel->renameResource(oldID, newID);
+                mController->renameResource(oldID, newID);
                 if (parentPath.getLength() == 0) // Are we editing the ID of the selected resource?
                     mResourceSelector->set(newID);
             }
