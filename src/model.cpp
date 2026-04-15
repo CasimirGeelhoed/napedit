@@ -613,9 +613,6 @@ namespace nap
 
 			mResourceRenamedSlot.setFunction([&](const std::string& oldName, const std::string& newName){ onResourceRenamed(oldName, newName); });
 			mModel->mResourceRenamedSignal.connect(mResourceRenamedSlot);
-			
-			mModel->mClearedSignal.connect(mModelClearedSlot);
-			
 			return true;
 		}
 

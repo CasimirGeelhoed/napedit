@@ -7,7 +7,7 @@
 
 RTTI_BEGIN_CLASS_NO_DEFAULT_CONSTRUCTOR(nap::edit::Inspector)
     RTTI_CONSTRUCTOR(nap::Core&)
-	RTTI_PROPERTY("ResourceSelector", &nap::edit::Inspector::mResourceSelector, nap::rtti::EPropertyMetaData::Required)
+    RTTI_PROPERTY("ResourceSelector", &nap::edit::Inspector::mResourceSelector, nap::rtti::EPropertyMetaData::Required)
     RTTI_PROPERTY("Controller", &nap::edit::Inspector::mController, nap::rtti::EPropertyMetaData::Required)
     RTTI_PROPERTY("LayoutConstants", &nap::edit::Inspector::mLayoutConstants, nap::rtti::EPropertyMetaData::Required)
 RTTI_END_CLASS
@@ -26,7 +26,7 @@ namespace nap
 
         bool Inspector::init(utility::ErrorState &errorState)
         {
-            mModel = mController->mModel.get();
+            mModel = mResourceSelector->mModel.get();
 
             // Scope for linked property editors
             auto editorTypes = RTTI_OF(IPropertyEditor).get_derived_classes();
