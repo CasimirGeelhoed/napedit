@@ -12,6 +12,7 @@
 
 RTTI_BEGIN_CLASS_NO_DEFAULT_CONSTRUCTOR(nap::edit::Model)
 	RTTI_CONSTRUCTOR(nap::Core&)
+	RTTI_PROPERTY("ResourcesFilter", &nap::edit::Model::mResourcesFilter, nap::rtti::EPropertyMetaData::Default)
 RTTI_END_CLASS
 
 RTTI_BEGIN_CLASS(nap::edit::Selector)
@@ -45,7 +46,8 @@ namespace nap
 			for (auto &resource: allResources)
 				if (mCore.getResourceManager()->getFactory().canCreate(resource))
 					if (mGroupTypes.find(resource.get_name().to_string()) == mGroupTypes.end())
-						mResourceTypes[resource.get_name().to_string()] = &resource;
+						if (mResourcesFilter.empty() || std::any_of(mResourcesFilter.begin(), mResourcesFilter.end(), [&](const std::string& p){ return resource.get_name().to_string().rfind(p, 0) == 0; }))
+							mResourceTypes[resource.get_name().to_string()] = &resource;
 
 			mPreResourcesLoadedSlot.setFunction([this](){ onPreResourcesLoaded(); });
 			mPostResourcesLoadedSlot.setFunction([this](){ onPostResourcesLoaded(); });

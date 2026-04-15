@@ -12,6 +12,8 @@ namespace nap
     namespace edit
     {
 
+	
+		
         /**
          * Data model that is being edited.
          * All resources are owned in a flat list.
@@ -36,8 +38,11 @@ namespace nap
             };
 
             Model(Core& core) : mCore(core) { }
+			
 
             bool init(utility::ErrorState &errorState) override;
+			
+			std::vector<std::string> mResourcesFilter; ///< Property: 'Resources Filter' list of prefixes (e.g. namespaces or full type names) to include as available resource types. If empty, all resource types will be available.
 
             /**
              * Create a new resource
