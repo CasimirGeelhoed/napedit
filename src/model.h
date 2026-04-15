@@ -42,7 +42,7 @@ namespace nap
 
             bool init(utility::ErrorState &errorState) override;
 			
-			std::vector<std::string> mResourcesFilter; ///< Property: 'Resources Filter' list of prefixes (e.g. namespaces or full type names) to include as available resource types. If empty, all resource types will be available.
+			std::vector<std::string> mResourceTypesFilter; ///< Property: 'Resource Types Filter' list of prefixes (e.g. namespaces or full type names) to include as available resource types. If empty, all resource types will be available.
 
             /**
              * Create a new resource
