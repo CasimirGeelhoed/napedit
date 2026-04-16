@@ -52,7 +52,6 @@
             void removeArrayElement();
             void moveArrayElementUp();
             void moveArrayElementDown();
-            void addArrayElement();
 
             void addArrayPtrElement(Resource* resource);
             void choosePointer(const rtti::TypeInfo& type);

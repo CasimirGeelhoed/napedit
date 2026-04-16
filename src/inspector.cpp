@@ -163,7 +163,7 @@ namespace nap
                     if (ImGui::BeginPopupContextItem("##ResourcesListPopupContextItem", ImGuiMouseButton_Right))
                     {
                         if (ImGui::Selectable("Add Element"))
-                            addArrayElement();
+                            insertArrayElement();
 
                         ImGui::EndPopup();
                     }
@@ -427,7 +427,11 @@ namespace nap
             }
             else
             {
-                mController->insertArrayElement(mSelection);
+                if (elementType == RTTI_OF(std::string))
+                    // String types cannot be inserted by variant
+                    mController->insertArrayElement(mSelection, std::string(""));
+                else
+                    mController->insertArrayElement(mSelection);
             }
         }
 
@@ -452,26 +456,6 @@ namespace nap
             mController->moveArrayElementDown(mSelection);
             auto arrayPath = mSelection.getPath();
             mSelection.set(arrayPath, mSelection.getArrayIndex() + 1, mInspectedResource.get());
-        }
-
-
-        void Inspector::addArrayElement()
-        {
-            auto array = mSelection.getResolvedPath().getValue();
-            auto view = array.create_array_view();
-            auto elementType = view.get_rank_type(1);
-            if (elementType.is_derived_from<rtti::ObjectPtrBase>())
-            {
-                if (rtti::hasFlag(mSelection.getResolvedPath().getProperty(), rtti::EPropertyMetaData::Embedded))
-                    createEmbeddedObject(elementType);
-                else
-                    choosePointer(elementType);
-            }
-            else {
-                assert(elementType.can_create_instance());
-                auto element = elementType.create();
-                mController->insertArrayElement(mSelection, element);
-            }
         }
 
 
