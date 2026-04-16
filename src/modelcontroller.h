@@ -15,6 +15,9 @@ namespace nap
 			RTTI_ENABLE(Resource)
 
 		public:
+			/**
+			 * ValuePath combines a path and its resolved path.
+			 */
 			class ValuePath
 			{
 			public:
