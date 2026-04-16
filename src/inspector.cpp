@@ -63,7 +63,10 @@ namespace nap
             ImGui::PopStyleColor();
 
             if (mResourceSelector->empty())
+            {
+                mInspectedResourceID.clear(); // Clear to make sure the check for selection change will be valid later.
                 return;
+            }
 
             ImGui::SetNextWindowBgAlpha(0.1);
             ImGui::BeginChild("##InspectorChild", ImVec2(0, 0), true);
