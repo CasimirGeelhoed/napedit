@@ -207,6 +207,13 @@ namespace nap
              * @param newID name of the resource.
              */
             Signal<const std::string&, const std::string&> mResourceRenamedSignal;
+			
+			/**
+			 * Generates a unique ID
+			 * @param baseID the desired ID
+			 * @return baseID appended by a unique postfix, if necessary.
+			 */
+			std::string getUniqueID(const std::string& baseID);
 
         private:
             bool eraseFromTree(std::vector<ResourcePtr<Resource>>& branch, Object& resource);
@@ -214,7 +221,6 @@ namespace nap
             bool eraseFromTree(std::vector<ResourcePtr<Entity>>& branch, Object& resource);
             bool eraseFromTree(Object& resource);
 
-            std::string getUniqueID(const std::string& baseID);
 
             Slot<> mPreResourcesLoadedSlot;
             void onPreResourcesLoaded();
