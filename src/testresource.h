@@ -37,6 +37,7 @@ namespace nap
         std::vector<ResourcePtr<TestResource>> mPointerVector;
         std::vector<ResourcePtr<TestResource>> mEmbeddedPointerVector;
         std::vector<TestStruct> mObjectVector;
+        std::vector<std::string> mStringVector;
         std::array<int, 4> mArray;
         glm::vec2 mVec2;
         glm::vec3 mVec3;
