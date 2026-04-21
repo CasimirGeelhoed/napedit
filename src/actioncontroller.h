@@ -28,6 +28,8 @@ namespace nap
 
             ResourcePtr<Selector> mSelector;
             ResourcePtr<Controller> mController;
+			
+			std::string mDefaultFilePath;
 
             bool init(utility::ErrorState& errorState) override;
 

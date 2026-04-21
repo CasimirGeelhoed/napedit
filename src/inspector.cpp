@@ -78,8 +78,12 @@ namespace nap
                 mSelection.clear();
                 mInspectedResourceID = mResourceSelector->get();
                 mInspectedResource = mModel->findResource(mResourceSelector->get());
-                assert(mInspectedResource != nullptr);
             }
+			if (mInspectedResource == nullptr)
+			{
+				mInspectedResource = mModel->findResource(mResourceSelector->get());
+			}
+			assert(mInspectedResource != nullptr);
 
             // Draw selected resource
             rtti::Path path;

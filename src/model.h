@@ -248,18 +248,21 @@ namespace nap
 
         public:
             ResourcePtr<Model> mModel; ///< Property: 'Model' Pointer to the Model the resource is selected from
+			std::string mDefaultSelection; ///< Property: 'DefaultSelection' mID selected by default after loading a new file.
 
             // Inherited from Resource
             bool init(utility::ErrorState &errorState) override;
 
             /**
-             * Selects a resource
+             * Selects a resource. Clears selection if resource was not found.
              * @param mID Unique ID of the selected resource
              */
             void set(const std::string& mID)
             {
-                assert(mModel->findResource(mID) != nullptr);
-                mSelection = mID;
+                if (mModel->findResource(mID) != nullptr)
+					mSelection = mID;
+				else
+					mSelection.clear();
             }
 
             /**
