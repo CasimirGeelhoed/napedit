@@ -248,7 +248,6 @@ namespace nap
 
         public:
             ResourcePtr<Model> mModel; ///< Property: 'Model' Pointer to the Model the resource is selected from
-			std::string mDefaultSelection; ///< Property: 'DefaultSelection' mID selected by default after loading a new file.
 
             // Inherited from Resource
             bool init(utility::ErrorState &errorState) override;

@@ -17,7 +17,6 @@ RTTI_END_CLASS
 
 RTTI_BEGIN_CLASS(nap::edit::Selector)
 	RTTI_PROPERTY("Model", &nap::edit::Selector::mModel, nap::rtti::EPropertyMetaData::Required)
-	RTTI_PROPERTY("DefaultSelection", &nap::edit::Selector::mDefaultSelection, nap::rtti::EPropertyMetaData::Default)
 RTTI_END_CLASS
 
 namespace nap

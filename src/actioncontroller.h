@@ -30,7 +30,8 @@ namespace nap
             ResourcePtr<Controller> mController;
 			
 			std::string mDefaultFilePath;
-
+			std::string mDefaultSelection;
+			
             bool init(utility::ErrorState& errorState) override;
 
             bool isQuitting() const { return mQuitting; }

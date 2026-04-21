@@ -14,6 +14,7 @@ RTTI_BEGIN_CLASS(nap::edit::ActionController)
     RTTI_PROPERTY("UndoAction", &nap::edit::ActionController::mUndoAction, nap::rtti::EPropertyMetaData::Default)
     RTTI_PROPERTY("RedoAction", &nap::edit::ActionController::mRedoAction, nap::rtti::EPropertyMetaData::Default)
 	RTTI_PROPERTY("DefaultFilePath", &nap::edit::ActionController::mDefaultFilePath, nap::rtti::EPropertyMetaData::Default)
+	RTTI_PROPERTY("DefaultSelection", &nap::edit::ActionController::mDefaultSelection, nap::rtti::EPropertyMetaData::Default)
 RTTI_END_CLASS
 
 
@@ -45,7 +46,7 @@ namespace nap
 				utility::ErrorState errorState;
 				if (!mModel->loadFromFile(mPath, errorState))
 					Logger::error(errorState.toString().c_str());
-				mSelector->set(mSelector->mDefaultSelection);
+				mSelector->set(mDefaultSelection);
 			}
 			else
 			{
@@ -63,7 +64,7 @@ namespace nap
                 utility::ErrorState errorState;
                 if (!mModel->loadFromFile(mPath, errorState))
                     Logger::error(errorState.toString().c_str());
-				mSelector->set(mSelector->mDefaultSelection);
+				mSelector->set(mDefaultSelection);
             }
         }
 
