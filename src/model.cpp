@@ -574,12 +574,12 @@ namespace nap
 		{
 			auto baseID = aBaseID;
 			baseID = utility::replaceAllInstances(utility::trim(baseID), " ", "_");
-			int idCounter = 2;
-			auto mID = baseID;
+			int idCounter = 1;
+			auto mID = baseID + std::to_string(idCounter);
 			while (findResource(mID) != nullptr)
 			{
-				mID = baseID + std::to_string(idCounter);
 				idCounter++;
+				mID = baseID + std::to_string(idCounter);
 			}
 			return mID;
 		}
