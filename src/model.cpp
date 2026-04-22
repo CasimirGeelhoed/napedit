@@ -483,7 +483,13 @@ namespace nap
 				errorState.fail("Failed to read file: %s", path.c_str());
 				return false;
 			}
-			return deserialize(jsonString, errorState);
+			
+			bool success = deserialize(jsonString, errorState);
+			if (!success)
+				return false;
+			
+			mLoadedSignal.trigger();
+			return true;
 		}
 
 

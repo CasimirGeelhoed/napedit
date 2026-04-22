@@ -195,6 +195,9 @@ namespace nap
             // Signal emitted when the model is cleared.
             Signal<> mClearedSignal;
 
+			// Signal emitted when the model is loaded.
+			Signal<> mLoadedSignal;
+			
             /**
              * Signal emitted when a resource is removed.
              * @param mID ID of the removed resource.
